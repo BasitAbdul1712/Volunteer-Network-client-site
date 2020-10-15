@@ -12,9 +12,9 @@ const history = useHistory()
     const { title, picture, id } = props.card;
     return (
         <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 px-3 mb-3">
-            <Card onClick = {()=>{handleAddActivity(id)}} style={{ width: '16rem', borderRadius: '15px', cursor: 'pointer'}}>
-                <Card.Img style={{ width: '100%', height: '220px'}} variant="top" src={picture} />
-                <Card.Body className = "text-center text-light bg-primary" style={{ height: '80px'}}>
+            <Card onClick = {()=>{handleAddActivity(id)}} style={{ width: '15rem', borderRadius: '15px', cursor: 'pointer'}}>
+                <Card.Img style={{ width: '100%', height: '200px'}} variant="top" src={picture} />
+                <Card.Body className = "text-center text-light bg-primary" style={{ height: '80px', width: '100%'}}>
                     <Card.Title> {title} </Card.Title>
                  </Card.Body>
             </Card>
