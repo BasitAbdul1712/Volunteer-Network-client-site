@@ -11,6 +11,7 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import RegistrationArea from './components/RegistrationArea/RegistrationArea';
+import SelectedTask from './components/SelectedTask/SelectedTask';
 
 export const UserContext = createContext();
 function App() {
@@ -28,6 +29,9 @@ function App() {
           <PrivateRoute path="/register/:id">
           <RegistrationArea></RegistrationArea>
           </PrivateRoute>
+          <Route path="/selectedTasks">
+          <SelectedTask></SelectedTask>
+          </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
