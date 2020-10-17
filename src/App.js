@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import AdminEvent from './components/Admin/AdminEvent';
 import Dashboard from './components/Admin/Dashboard';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/adminDashboard">
           <Dashboard></Dashboard>
+          </Route>
+          <Route path="/adminAddEvent">
+          <AdminEvent></AdminEvent>
           </Route>
           <PrivateRoute path="/register/:id">
           <RegistrationArea></RegistrationArea>
