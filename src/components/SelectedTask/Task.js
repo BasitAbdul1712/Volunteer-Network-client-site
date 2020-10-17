@@ -13,7 +13,6 @@ const Task = (props) => {
             })
         .then(res => res.json())
         .then(result => {
-            // const removeTask = task.filter(task =>task._id !== id)
             // setTask(removeTask)
             // console.log(data, removeTask);
         })

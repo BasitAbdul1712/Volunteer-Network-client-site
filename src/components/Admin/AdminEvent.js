@@ -1,14 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logos/Group 1329.png'
+import Header from '../Header/Header';
 const AdminEvent = () => {
 
     const addEvent = () =>{
-        console.log('add event');
-    }
+        const title = document.getElementById('title').value;
+        const date = document.getElementById('date').value;
+        const description = document.getElementById('description').value;
+        const file = document.getElementById('file').value;
+
+        const data = {title: title, date: date, description: description, file: file}
+        console.log(data);
+        fetch('http://localhost:5000/addEvent', {
+           method: 'POST',
+           headers: {
+               'Content-type': 'application/json'
+           },
+           body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data =>console.log(data))
+    };
 
     return (
         <>
+        <Header></Header>
             <div className='pt-5 pl-5 container'>
                 <div className="row">
                     <div className="col-md-3">
@@ -64,13 +81,13 @@ const AdminEvent = () => {
                                     <div class="col-md-6 mb-3">
                                         <label className="font-weight-bold " for="file">Banner</label>
                                         <br />
-                                        <input className="font-weight-bold" type="file" class="" id="file" required />
+                                        <input className="font-weight-bold" type="file" class="" id="file" />
                                         <div class="valid-feedback">
                                             Looks good!
                                             </div>
                                     </div>
                                 </div>
-                                <button onClick = { () =>{addEvent()}} class="btn btn-primary" type="submit">Submit form</button>
+                                <button onClick = {addEvent} class="btn btn-primary" type="submit">Submit form</button>
                             </form>
                         </div>
                     </div>
