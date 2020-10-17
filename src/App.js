@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import Dashboard from './components/Admin/Dashboard';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
@@ -26,12 +27,18 @@ function App() {
           <Route path="/login">
          <Login></Login>
           </Route>
+          <Route path="/home">
+          <Home></Home>
+          </Route>
+          <Route path="/adminDashboard">
+          <Dashboard></Dashboard>
+          </Route>
           <PrivateRoute path="/register/:id">
           <RegistrationArea></RegistrationArea>
           </PrivateRoute>
-          <Route path="/selectedTasks">
+          <PrivateRoute path="/selectedTasks">
           <SelectedTask></SelectedTask>
-          </Route>
+          </PrivateRoute>
         </Switch>
       </Router>
     </UserContext.Provider>

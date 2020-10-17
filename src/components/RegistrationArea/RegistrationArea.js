@@ -14,13 +14,13 @@ const RegistrationArea = (props) => {
             .then(res => res.json())
             .then(data => setSelectedActivity(data))
     }, [id])
+    
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => {
-        console.log('form submitted', data)
-    // const date = document.createElement('date').value;
-    // const description = document.createElement('description')
+        // console.log('form submitted', data, selectedActivity)
+        delete selectedActivity._id;
         const activityDetails = {...loggedInUser, ...selectedActivity, register: data}
-
+        console.log(activityDetails, loggedInUser);
         fetch('http://localhost:5000/addTask', {
            method: 'POST',
            headers: {
@@ -29,7 +29,7 @@ const RegistrationArea = (props) => {
            body: JSON.stringify(activityDetails)
         })
         .then(response => response.json())
-        .then(data =>  history.push('/selectedTasks'))
+        .then(data =>history.push('/selectedTasks'))
     };
 
     return (

@@ -23,7 +23,11 @@ const Login = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function(result) {
             const {displayName, email} = result.user;
-            const signedInUser = {name: displayName, email} 
+            const signedInUser = {
+                name: displayName,
+                email: email,
+                isSignedIn: true,
+            }  
             setLoggedInUser(signedInUser);
             storeAuthToken();
           }).catch(function(error) {

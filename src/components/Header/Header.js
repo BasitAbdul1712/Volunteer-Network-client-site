@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import logo from '../../images/logos/Group 1329.png'
 const Header = () => {
-
+const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   return (
     <nav class="navbar navbar-expand-lg navbar-light ">
       
@@ -27,8 +28,17 @@ const Header = () => {
            <li className="nav-item">
                 <Link className="nav-link ml-2 text-dark" to="/blog">Blog</Link>
            </li>
-           <li className="nav-item">
+           {loggedInUser.isSignedIn?
+            <li className="nav-item">
+            <Link onClick={() =>setLoggedInUser({})} className="nav-link ml-4 btn btn-primary px-3" to="/">Logout</Link>
+         </li>
+         :
+          <li className="nav-item">
            <Link className="nav-link ml-4 btn btn-primary px-3" to="/login">Login</Link>
+         </li>
+           }
+          <li className="nav-item">
+          <Link className="nav-link ml-2 text-dark px-3" > {loggedInUser.name} </Link>
           </li>
           <li className="nav-item">
           <Link className="nav-link ml-2 btn text-white btn-dark px-3" to="/adminDashboard">Admin</Link>
