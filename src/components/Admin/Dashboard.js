@@ -5,20 +5,19 @@ import logo from '../../images/logos/Group 1329.png'
 const Dashboard = () => {
     const [allPeople, setAllPeople] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/adminsArea')
+        fetch('https://dry-plains-95100.herokuapp.com/adminsArea')
             .then(res => res.json())
             .then(data => setAllPeople(data))
     }, [])
-    console.log(allPeople);
-
+    console.log(allPeople[0]);
     const deleteUser = (id) => {
         console.log('successful');
-        fetch(`http://localhost:5000/taskDelete/${id}`, {    
+        fetch(`https://dry-plains-95100.herokuapp.com/taskDelete/${id}`, {    
          method: 'DELETE' 
             })
         .then(res => res.json())
         .then(result => {
-             const removeTask = allPeople.filter(task =>task._id !== id)
+             const removeTask = allPeople.filter(task =>task.id !== id)
              setAllPeople(removeTask)
             console.log(removeTask);
             console.log(result);
@@ -52,8 +51,8 @@ const Dashboard = () => {
                         </div>
 
                     </div>
-                    <div style={{ height: '100vh', marginTop: '20px', backgroundColor: ' #e6edf1' }} className="col-md-9 ">
-                        <div style={{ height: '100vh', padding: '15px 15px 0px 15px', marginTop: '20px', borderRadius: '15px' }} className="card shadow ">
+                    <div style={{ height: 'auto', width: 'auto', marginTop: '20px', backgroundColor: ' #e6edf1' }} className="col-md-9">
+                        <div style={{ height: 'auto', padding: '15px 15px 0px 15px', marginTop: '20px', borderRadius: '15px' }} className="card shadow ">
 
                             <table class="table table-hover">
                                 <thead style={{ backgroundColor: ' #e6edf1', borderRadius: '15px' }}>
@@ -71,11 +70,10 @@ const Dashboard = () => {
                                         <tr key={user._id} >
                                             <td>{user.name}</td>
                                             <td>{user.email}</td>
-                                            <td>{user.date}</td>
-                                            <td>{user.task}</td>
+                                            <td>{user.register.date}</td>
+                                            <td>{user.register.title}</td>
                                             <td><button onclick={() =>{deleteUser(user.id)}} class='btn btn-danger'><img height='20' src="https://i.ibb.co/MR2ZvS3/trash.png" alt="" /></button></td>
                                         </tr>
-                                    
                                     )}
 
                                 </tbody>

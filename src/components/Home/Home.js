@@ -7,11 +7,10 @@ import VolunteerDetails from './VolunteerDetails/VolunteerDetails';
 const Home = () => {
     const [activities, setActivities] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/activities')
+        fetch('https://dry-plains-95100.herokuapp.com/activities')
             .then(res => res.json())
             .then(data => setActivities(data))
     }, [])
-
 
     return (
         <div className="container bg">

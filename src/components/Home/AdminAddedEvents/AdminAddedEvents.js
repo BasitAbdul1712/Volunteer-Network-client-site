@@ -6,7 +6,7 @@ const AdminAddedEvents = () => {
     
     const [events, setEvents] = useState([])
     useEffect(() =>{
-        fetch('http://localhost:5000/events', {
+        fetch('https://dry-plains-95100.herokuapp.com/events', {
             method: 'GET',
             headers: {
                  'Content-Type': 'application/json',

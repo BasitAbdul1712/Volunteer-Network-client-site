@@ -8,7 +8,7 @@ const SelectedTask = () => {
     const [selectedTasks, setSelectedTasks] = useState([])
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     useEffect(() =>{
-        fetch('http://localhost:5000/addTask/taskId?email=' + loggedInUser.email, {
+        fetch('https://dry-plains-95100.herokuapp.com/addTask/taskId?email=' + loggedInUser.email, {
             method: 'GET',
             headers: {
                  'Content-Type': 'application/json',

@@ -8,7 +8,7 @@ const Task = (props) => {
     const { date, description,} = props.task.register
 
     const deleteTask = (id) => {
-         fetch(`http://localhost:5000/taskDelete/${id}`, {    
+         fetch(`https://dry-plains-95100.herokuapp.com100.herokuapp.com/taskDelete/${id}`, {    
          method: 'DELETE' 
             })
         .then(res => res.json())

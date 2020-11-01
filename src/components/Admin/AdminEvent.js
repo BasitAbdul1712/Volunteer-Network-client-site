@@ -12,7 +12,7 @@ const AdminEvent = () => {
 
         const data = {title: title, date: date, description: description, file: file}
         console.log(data);
-        fetch('http://localhost:5000/addEvent', {
+        fetch('https://dry-plains-95100.herokuapp.com/addEvent', {
            method: 'POST',
            headers: {
                'Content-type': 'application/json'

@@ -10,7 +10,7 @@ const RegistrationArea = (props) => {
     const [selectedActivity, setSelectedActivity] = useState({})
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     useEffect(() => {
-        fetch('http://localhost:5000/activities/' + id)
+        fetch('https://dry-plains-95100.herokuapp.com/activities/' + id)
             .then(res => res.json())
             .then(data => setSelectedActivity(data))
     }, [id])
@@ -21,7 +21,7 @@ const RegistrationArea = (props) => {
         delete selectedActivity._id;
         const activityDetails = {...loggedInUser, ...selectedActivity, register: data}
         console.log(activityDetails, loggedInUser);
-        fetch('http://localhost:5000/addTask', {
+        fetch('https://dry-plains-95100.herokuapp.com/addTask', {
            method: 'POST',
            headers: {
                'Content-type': 'application/json'
